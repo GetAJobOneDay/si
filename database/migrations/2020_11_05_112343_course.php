@@ -17,7 +17,6 @@ class Course extends Migration
             $table->integer('course_id')->primary();
             $table->string('course_name');
             $table->float('credit');
-            $table->string('grade');
         });
     }
 

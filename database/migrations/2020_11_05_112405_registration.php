@@ -17,7 +17,9 @@ class Registration extends Migration
             $table->integer('registration_id')->primary();
             $table->integer('student_id');
             $table->integer('course_id');
-        }); 
+            $table->string('grade');
+            $table->boolean('ce')->default(true);
+        });
     }
 
     /**
@@ -27,6 +29,6 @@ class Registration extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registrations'); 
+        Schema::dropIfExists('registrations');
     }
 }

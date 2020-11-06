@@ -24,7 +24,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('admin','App\Http\Controllers\AdminCon')->middleware(CheckStatus::class);
 Route::get('/admin/delete/{id}', 'App\Http\Controllers\AdminCon@destroy')->name('admin.destroy');
 Route::get('/grade',function(){
-    $data = DB::table('users')->whereRaw('status = 1 and id <> 1')->get();
+    $data = DB::table('users')->whereRaw('approve = true and role <> "admin"')->get();
        return view('admin.grade',compact(['data']));
 });
+Route::get('/updategrade','App\Http\Controllers\AdminCon@update');
 ?>

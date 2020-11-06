@@ -9,7 +9,15 @@
     <title>Document</title>
 </head>
 <body>
-    <table class="table">
+    <?php
+        session_start();
+        if(isset($_SESSION['message'])){
+            $message = $_SESSION['message'];
+            echo "<span class='mt-2 alert alert-warning fade show'>$message</span><br><br>";
+            unset($_SESSION['message']);
+        }
+    ?>
+<table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
